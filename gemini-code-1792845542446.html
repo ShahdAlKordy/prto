@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nada Nasser Mohamed - Professional Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light Theme */
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --featured-bg: rgba(37, 99, 235, 0.05);
+            --featured-border: #3b82f6;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme (Premium Tech Aesthetic) */
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #3b82f6;
+            --accent-hover: #60a5fa;
+            --border-color: #334155;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+            --featured-bg: rgba(59, 130, 246, 0.1);
+            --featured-border: #60a5fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(var(--surface-color), 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-color); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-color); }
+        
+        .theme-toggle {
+            background: none; border: none;
+            color: var(--text-primary);
+            font-size: 1.2rem; cursor: pointer;
+        }
+
+        /* Sections */
+        section { padding: 6rem 5% 4rem; max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-size: 2.5rem; margin-bottom: 2rem;
+            text-align: center; font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #8b5cf6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex; align-items: center; justify-content: space-between;
+            min-height: 100vh; gap: 4rem; padding-top: 8rem;
+        }
+        .hero-content { flex: 1; }
+        .hero-subtitle { color: var(--accent-color); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-desc { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; }
+        
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn {
+            padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.2s; border: none; font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--accent-color); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+        .btn-outline:hover { background-color: var(--accent-color); color: white; transform: translateY(-2px); }
+
+        .social-links { display: flex; gap: 1rem; }
+        .social-links a {
+            font-size: 1.5rem; color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+        .social-links a:hover { color: var(--accent-color); }
+
+        .hero-image-container { flex: 1; display: flex; justify-content: center; }
+        .hero-image {
+            width: 350px; height: 350px; border-radius: 50%;
+            object-fit: cover; border: 4px solid var(--surface-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        /* Experience Timeline */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before {
+            content: ''; position: absolute; left: 1rem; top: 0; bottom: 0;
+            width: 2px; background-color: var(--border-color);
+        }
+        .timeline-item { position: relative; padding-left: 3rem; margin-bottom: 3rem; }
+        .timeline-dot {
+            position: absolute; left: 0.56rem; top: 0.2rem; width: 1rem; height: 1rem;
+            background-color: var(--accent-color); border-radius: 50%;
+            border: 2px solid var(--bg-color); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+        .timeline-content {
+            background-color: var(--surface-color); padding: 1.5rem;
+            border-radius: 0.5rem; box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+        .timeline-date { color: var(--accent-color); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .timeline-company { color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
+        .timeline-desc { color: var(--text-secondary); font-size: 0.95rem; }
+        .timeline-desc li { margin-bottom: 0.5rem; margin-left: 1.2rem; list-style-type: disc; }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .skill-category {
+            background-color: var(--surface-color); padding: 2rem;
+            border-radius: 0.5rem; border: 1px solid var(--border-color);
+        }
+        .skill-category h3 { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; color: var(--accent-color); }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag {
+            background-color: var(--bg-color); padding: 0.5rem 1rem;
+            border-radius: 2rem; font-size: 0.9rem; border: 1px solid var(--border-color);
+            color: var(--text-primary); font-weight: 500;
+        }
+
+        /* Certifications */
+        .cert-controls {
+            display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;
+            justify-content: space-between; align-items: center;
+            background-color: var(--surface-color); padding: 1rem;
+            border-radius: 0.5rem; border: 1px solid var(--border-color);
+        }
+        .search-box {
+            flex: 1; min-width: 250px; position: relative;
+        }
+        .search-box input {
+            width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 0.5rem; border: 1px solid var(--border-color);
+            background-color: var(--bg-color); color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .search-box i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
+        .filter-box select {
+            padding: 0.75rem 1rem; border-radius: 0.5rem;
+            border: 1px solid var(--border-color); background-color: var(--bg-color);
+            color: var(--text-primary); font-size: 1rem; cursor: pointer;
+        }
+
+        .cert-stats { font-size: 0.9rem; color: var(--text-secondary); width: 100%; text-align: right; }
+
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+        }
+        .cert-card {
+            background-color: var(--surface-color); border-radius: 0.5rem;
+            border: 1px solid var(--border-color); padding: 1.5rem;
+            display: flex; flex-direction: column; height: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px); box-shadow: var(--card-shadow);
+        }
+        .cert-card.featured {
+            border: 2px solid var(--featured-border);
+            background-color: var(--featured-bg);
+        }
+        .cert-badge {
+            align-self: flex-start; padding: 0.25rem 0.75rem; border-radius: 2rem;
+            font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;
+            background-color: var(--bg-color); color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .featured-badge { background-color: var(--accent-color); color: white; border: none; }
+        .cert-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; flex: 1; }
+        .cert-org { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .cert-actions { display: flex; gap: 0.5rem; }
+        .cert-actions .btn { flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.5rem; }
+
+        /* CV Download Section */
+        .cv-section {
+            text-align: center; background-color: var(--surface-color);
+            padding: 4rem 2rem; border-radius: 1rem; border: 1px solid var(--border-color);
+            margin: 4rem auto; max-width: 800px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 2rem; background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color); margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 6rem; }
+            .hero-image { width: 250px; height: 250px; }
+            .btn-group { justify-content: center; }
+            .social-links { justify-content: center; }
+            .nav-links { display: none; } /* Mobile menu simplified for single file constraints */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Nada<span style="color: var(--text-primary)">.</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Content Creator & Social Media Specialist</div>
+            <h1 class="hero-title">Hi, I'm Nada Nasser Mohamed</h1>
+            <p class="hero-desc">
+                Marketing professional specializing in social media content planning, campaign ideation, and digital strategy. Evolving expertise in AI-assisted tools, data analytics, and modern digital platforms.
+            </p>
+            <div class="btn-group">
+                <a href="#cv-download" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> View My CV</a>
+                <a href="#certifications" class="btn btn-outline"><i class="fa-solid fa-certificate"></i> Explore Certificates</a>
+            </div>
+            <div class="social-links">
+                <a href="mailto:nada.qotp.uni@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <!-- Uses the exact local PROFILE image file -->
+            <img src="PROFILE.jpeg" alt="Nada Nasser Mohamed" class="hero-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'350\' height=\'350\'><rect width=\'350\' height=\'350\' fill=\'%23334155\'/><text x=\'50%\' y=\'50%\' fill=\'%2394a3b8\' text-anchor=\'middle\' dy=\'.3em\' font-size=\'40\'>Profile Image</text></svg>'">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Core Competencies & Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-pen-nib"></i> Marketing & Content</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Copywriting</span>
+                    <span class="skill-tag">Social Media Planning</span>
+                    <span class="skill-tag">Campaign Ideation</span>
+                    <span class="skill-tag">Brand Communication</span>
+                    <span class="skill-tag">Audience Insights</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-laptop-code"></i> Technical Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">CapCut</span>
+                    <span class="skill-tag">Microsoft Excel</span>
+                    <span class="skill-tag">Google Sheets</span>
+                    <span class="skill-tag">AI-assisted Design Tools</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fa-solid fa-users"></i> Leadership & Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Team Leadership</span>
+                    <span class="skill-tag">Project Management</span>
+                    <span class="skill-tag">Cross-functional Coordination</span>
+                    <span class="skill-tag">Problem Solving</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <!-- Experience 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">5 Months</div>
+                    <h3 class="timeline-title">Marketing & Content Specialist</h3>
+                    <div class="timeline-company">Scientific Center | Beni Suef, Egypt</div>
+                    <ul class="timeline-desc">
+                        <li>Coordinated content planning, campaign ideation, and social media operations.</li>
+                        <li>Contributed to video content that achieved approximately 114,000 views.</li>
+                        <li>Created visual marketing materials using Canva, Photoshop, and AI tools.</li>
+                        <li>Monitored paid advertising campaigns and audience geographic distribution.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Experience 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">5 Months</div>
+                    <h3 class="timeline-title">Content Creator & Content Planner</h3>
+                    <div class="timeline-company">Alaa El-Din Company | Egypt</div>
+                    <ul class="timeline-desc">
+                        <li>Managed content across 24 social media pages for multi-industry clients.</li>
+                        <li>Developed tailored content calendars based on audience and marketing objectives.</li>
+                        <li>Organized publishing schedules ensuring timely execution of deliverables.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Leadership -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Present</div>
+                    <h3 class="timeline-title">Vice President (Prev: Vice Head of Marketing)</h3>
+                    <div class="timeline-company">Rally Society | Beni Suef University</div>
+                    <ul class="timeline-desc">
+                        <li>Contribute to organizational planning and execution of student initiatives.</li>
+                        <li>Developed creative promotional content to increase organizational awareness.</li>
+                        <li>Coordinated cross-functional teams to support team performance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2 class="section-title">Certifications Library</h2>
+        
+        <div class="cert-controls">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search certificates...">
+            </div>
+            <div class="filter-box">
+                <select id="categoryFilter">
+                    <option value="All">All Categories</option>
+                    <option value="Featured">🌟 Featured Certifications</option>
+                    <option value="Anthropic Courses">Anthropic Courses</option>
+                    <option value="Data Analysis">Data Analysis</option>
+                    <option value="Google AI">Google AI Professional</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="E-Education">E-Education</option>
+                    <option value="Freelancing">Freelancing</option>
+                    <option value="Business Skills">Business & Tech</option>
+                </select>
+            </div>
+            <div class="cert-stats" id="certCount">Showing 0 certificates</div>
+        </div>
+
+        <div class="cert-grid" id="certGrid">
+            <!-- Certificates injected via JS -->
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv-download" class="cv-section">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Full Professional Resume</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Review my complete educational background (BSc Zoology, Beni Suef University) and detailed professional journey in my formal CV document.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+            <a href="./CV.pdf" target="_blank" class="btn btn-primary"><i class="fa-solid fa-eye"></i> View CV in Browser</a>
+            <a href="./CV.pdf" download="Nada_Nasser_Mohamed_CV.pdf" class="btn btn-outline"><i class="fa-solid fa-download"></i> Download PDF</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nada Nasser Mohamed. All rights reserved.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Based in Beni Suef, Egypt</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Certificate Database Mapping directly to the exact folder structure provided
+        const certificates = [
+            // Featured - Data Analysis / Power BI
+            {
+                title: "Microsoft Power BI Data Analyst Professional Certificate",
+                org: "Microsoft", category: "Data Analysis", sub: "Power BI", featured: true,
+                file: "./Certificates/data%20analysis/Microsoft%20Power%20BI%20Data%20Analyst%20Professional%20Certificate/Microsoft%20Power%20BI%20Data%20Analyst%20Professional%20Certificate.pdf"
+            },
+            {
+                title: "Career Essentials in Data Analysis",
+                org: "Microsoft & LinkedIn", category: "Data Analysis", sub: "Career Essentials", featured: true,
+                file: "./Certificates/data%20analysis/Career%20Essentials%20in%20Data%20Analysis%20by%20Microsoft%20and%20LinkedIn/CertificateOfCompletion_Career%20Essentials%20in%20Data%20Analysis%20by%20Microsoft%20and%20LinkedIn.pdf"
+            },
+            {
+                title: "Digital Egypt Pioneers Initiative (DEPI)",
+                org: "DEPI", category: "Data Analysis", sub: "DEPI", featured: true,
+                file: "./Certificates/data%20analysis/Digital%20Egypt%20Pioneers%20Initiative%20(DEPI)/debi.pdf"
+            },
+            // Featured - AI
+            {
+                title: "Google AI Professional Certificate",
+                org: "Google", category: "Google AI", featured: true,
+                file: "./Certificates/Google%20AI%20Professional%20Certificate/Google%20AI%20Professional%20Certificate.pdf"
+            },
+            {
+                title: "Claude 101",
+                org: "Anthropic", category: "Anthropic Courses", featured: true,
+                file: "./Certificates/Anthropic%20Courses/1.Claude%20101.obwwkghrhata-1779107522.pdf"
+            },
+            // Anthropic Examples
+            {
+                title: "AI Fluency Framework & Foundations", org: "Anthropic", category: "Anthropic Courses",
+                file: "./Certificates/Anthropic%20Courses/5.AI%20Fluency%20Framework%20&%20Foundations.f6k9s2k6xysr-1779109654.pdf"
+            },
+            {
+                title: "Building with the Claude API", org: "Anthropic", category: "Anthropic Courses",
+                file: "./Certificates/Anthropic%20Courses/6.Building%20with%20the%20Claude%20API.wbemi95hp8eh-1779111344.pdf"
+            },
+            // Google AI Examples
+            {
+                title: "AI for Data Analysis", org: "Google", category: "Google AI",
+                file: "./Certificates/Google%20AI%20Professional%20Certificate/6.AI%20for%20Data%20Analysis.pdf"
+            },
+            {
+                title: "AI for Content Creation", org: "Google", category: "Google AI",
+                file: "./Certificates/Google%20AI%20Professional%20Certificate/5.AI%20for%20Content%20Creation.pdf"
+            },
+            // Data Analysis Subfolders
+            {
+                title: "Mastering Data Analysis in Excel", org: "Data Analysis", category: "Data Analysis",
+                file: "./Certificates/data%20analysis/Excel/Mastering%20Data%20Analysis%20in%20Excel.pdf"
+            },
+            {
+                title: "Data Modeling in Power BI", org: "Microsoft", category: "Data Analysis",
+                file: "./Certificates/data%20analysis/Microsoft%20Power%20BI%20Data%20Analyst%20Professional%20Certificate/4.Data%20Modeling%20in%20Power%20BI.pdf"
+            },
+            {
+                title: "Transact-SQL Queries Using SQL Server", org: "Data Analysis", category: "Data Analysis",
+                file: "./Certificates/data%20analysis/SQL/Transact%20SQL%20queries%20using%20SQL%20server%20en.pdf"
+            },
+            // Digital Marketing
+            {
+                title: "AI for Digital Marketing", org: "Marketing", category: "Digital Marketing",
+                file: "./Certificates/digital%20markiting/AI%20for%20Digital%20Marketing%20Applications%20in%20Online%20Business%20en.pdf"
+            },
+            // E-Education
+            {
+                title: "Instructional Design", org: "E-Education", category: "E-Education",
+                file: "./Certificates/e_education/Instructional%20Design%20en.pdf"
+            },
+            // Freelancing
+            {
+                title: "Freelancing Basics", org: "Freelancing", category: "Freelancing",
+                file: "./Certificates/freelancing/Freelancing%20Basics%20en.pdf"
+            },
+            {
+                title: "Getting Started as a Freelancer on Upwork", org: "Freelancing", category: "Freelancing",
+                file: "./Certificates/freelancing/Getting%20started%20as%20a%20freelancer%20(Upwork)%20en.pdf"
+            },
+            // Business & Tech
+            {
+                title: "Master Git & GitHub Essential Skills", org: "Tech", category: "Business Skills",
+                file: "./Certificates/Technical%20skills/Master%20Git%20&%20GitHub%20Essential%20Skills%20for%20Developers%5BArabic%5D.pdf"
+            },
+            {
+                title: "Business Model Canvas", org: "Business Skills", category: "Business Skills",
+                file: "./Certificates/business%20skills/Business%20Model%20Canvas.pdf"
+            }
+        ];
+
+        // UI Logic
+        const grid = document.getElementById('certGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterSelect = document.getElementById('categoryFilter');
+        const countDisplay = document.getElementById('certCount');
+
+        function renderCertificates(certs) {
+            grid.innerHTML = '';
+            
+            if (certs.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">No certificates found matching your criteria.</div>`;
+                countDisplay.textContent = `0 certificates`;
+                return;
+            }
+
+            certs.forEach(cert => {
+                const card = document.createElement('div');
+                card.className = `cert-card ${cert.featured ? 'featured' : ''}`;
+                
+                const badgeClass = cert.featured ? 'cert-badge featured-badge' : 'cert-badge';
+                const badgeText = cert.featured ? '🌟 Featured' : cert.category;
+
+                card.innerHTML = `
+                    <span class="${badgeClass}">${badgeText}</span>
+                    <h3 class="cert-title">${cert.title}</h3>
+                    <div class="cert-org">${cert.org || ''} ${cert.sub ? `• ${cert.sub}` : ''}</div>
+                    <div class="cert-actions">
+                        <a href="${cert.file}" target="_blank" class="btn btn-primary">
+                            <i class="fa-solid fa-external-link-alt"></i> View PDF
+                        </a>
+                        <a href="${cert.file}" download class="btn btn-outline" title="Download">
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            
+            countDisplay.textContent = `Showing ${certs.length} certificate${certs.length !== 1 ? 's' : ''}`;
+        }
+
+        function filterCertificates() {
+            const query = searchInput.value.toLowerCase();
+            const category = filterSelect.value;
+
+            const filtered = certificates.filter(cert => {
+                const matchesSearch = cert.title.toLowerCase().includes(query) || cert.category.toLowerCase().includes(query);
+                const matchesCategory = category === 'All' ? true 
+                                      : category === 'Featured' ? cert.featured 
+                                      : cert.category === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            // Sort featured first if "All" is selected
+            if (category === 'All' && query === '') {
+                filtered.sort((a, b) => (b.featured === true) - (a.featured === true));
+            }
+
+            renderCertificates(filtered);
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', filterCertificates);
+        filterSelect.addEventListener('change', filterCertificates);
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeBtn.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        });
+
+        // Initialize
+        renderCertificates(certificates.sort((a, b) => (b.featured === true) - (a.featured === true)));
+    </script>
+</body>
+</html>

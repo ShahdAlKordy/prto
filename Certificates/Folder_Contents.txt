@@ -1,0 +1,119 @@
+Folder PATH listing
+Volume serial number is 16C2-4013
+C:.
+|   Folder_Contents.txt
+|   
++---Anthropic Courses
+|       1.Claude 101.obwwkghrhata-1779107522.pdf
+|       10.Model Context Protocol Advanced Topics.xt79do7dvpba-1779112687.pdf
+|       13.Teaching AI Fluency.g84w26zyp3o9-1779115125.pdf
+|       14.AI Fluency for nonprofits.o3crygkf6kok-1779115911.pdf
+|       15.Introduction to agent skills.tb7y4fe6bdgj-1779115993.pdf
+|       16.Introduction to subagents.42x92rcmxsd3-1779116068.pdf
+|       17.AI Capabilities and Limitations.-o3crygkf6kok-1779115911.pdf
+|       18.AI Fluency for Small Businesses.2iskcpek6m5e-1779116747.pdf
+|       2.Claude Code 101.4je6kin97xba-1779108492.pdf
+|       3.Introduction to Claude Cowork.8npvdfor53zf-1779108842.pdf
+|       4.Claude Code in Action.ms3344o87y6e-1779109292.pdf
+|       5.AI Fluency Framework & Foundations.f6k9s2k6xysr-1779109654.pdf
+|       6.Building with the Claude API.wbemi95hp8eh-1779111344.pdf
+|       7.Introduction to Model Context Protocol.7j8ovj6eyivn-1779111635.pdf
+|       8.AI Fluency for educators.q3oa4sxyaofi-1779111911.pdf
+|       9.AI Fluency for students.5pcgi7z9go9j-1779112221.pdf
+|       all.pdf
+|       Anthropic courses.pdf
+|       
++---business skills
+|       Business Model Canvas.pdf
+|       Presentation Skills with Story Telling.pdf
+|       
++---data analysis
+|   +---Career Essentials in Data Analysis by Microsoft and LinkedIn
+|   |       CertificateOfCompletion_Career Essentials in Data Analysis by Microsoft and LinkedIn.pdf
+|   |       CertificateOfCompletion_Introduction to Career Skills in Data Analytics.pdf
+|   |       CertificateOfCompletion_Learning Data Analytics Part 2 Extending and Applying Core Knowledge (1).pdf
+|   |       CertificateOfCompletion_Learning Data Analytics Part 2 Extending and Applying Core Knowledge.pdf
+|   |       Learning Data Analytics 1 Foundations.pdf
+|   |       Learning Data Analytics 1 Foundations2.pdf
+|   |       
+|   +---Digital Egypt Pioneers Initiative (DEPI)
+|   |       debi.pdf
+|   |       
+|   +---Excel
+|   |       Mastering Data Analysis in Excel.pdf
+|   |       
+|   +---Microsoft Power BI Data Analyst Professional Certificate
+|   |       1.Preparing Data for Analysis with Microsoft Excel.pdf
+|   |       2.Harnessing the Power of Data with Power BI.pdf
+|   |       3.Extract, Transform and Load Data in Power BI.pdf
+|   |       4.Data Modeling in Power BI.pdf
+|   |       5.Data Analysis and Visualization with Power BI.pdf
+|   |       6.Creative Designing in Power BI.pdf
+|   |       7.Deploy and Maintain Power BI Assets and Capstone.pdf
+|   |       8.Microsoft PL-300 Exam Preparation and Practice.pdf
+|   |       Microsoft Power BI Data Analyst Professional Certificate.pdf
+|   |       MicrosoftPowerBIDataAnalystProfessionalCertificate_Badge20260128.pdf
+|   |       
+|   \---SQL
+|           Implementing and Developing SQL server objects ar.pdf
+|           Implementing and Developing SQL server objects en.pdf
+|           Transact SQL queries using SQL server ar.pdf
+|           Transact SQL queries using SQL server en.pdf
+|           
++---digital markiting
+|       AI for Digital Marketing  Applications in Online Business ar.pdf
+|       AI for Digital Marketing Applications in Online Business en.pdf
+|       Start Your Career in Digital Marketing ar.pdf
+|       Start Your Career in Digital Marketing en.pdf
+|       
++---e_education
+|       Articulate Storyline 3 ar.pdf
+|       Articulate Storyline 3 en.pdf
+|       Assessment Design Mastery From Theory to Practice ar.pdf
+|       Assessment Design Mastery From Theory to Practice en.pdf
+|       Designing Engaging eLearning Activities Strategies for Effective Online Learning ar.pdf
+|       Designing Engaging eLearning Activities Strategies for Effective Online Learning en.pdf
+|       eLearning Fundamentals ar.pdf
+|       eLearning Fundamentals en.pdf
+|       Gamification In eLearning ar.pdf
+|       Gamification In eLearning en.pdf
+|       Instructional Design ar.pdf
+|       Instructional Design en.pdf
+|       Moodle Admin Basics ar.pdf
+|       Moodle Admin Basics en.pdf
+|       Towards Responsible AI in Education ar.pdf
+|       Towards Responsible AI in Education en.pdf
+|       
++---freelancing
+|       Freelancing Basics ar.pdf
+|       Freelancing Basics en.pdf
+|       Getting started as a freelancer (khamsat) ar.pdf
+|       Getting started as a freelancer (khamsat) en.pdf
+|       Getting started as a freelancer (Mostaql) ar.pdf
+|       Getting started as a freelancer (Mostaql) en.pdf
+|       Getting started as a freelancer (Upwork) ar.pdf
+|       Getting started as a freelancer (Upwork) en.pdf
+|       Getting_started_as_a_freelancer_(khamsat).png
+|       Getting_started_as_a_freelancer_(Mostaql).png
+|       
++---Google AI Professional Certificate
+|       1.AI Fundamentals.pdf
+|       2.AI for Brainstorming and Planning.pdf
+|       3.AI for Research and Insights.pdf
+|       4.AI for Writing and Communicating.pdf
+|       5.AI for Content Creation.pdf
+|       6.AI for Data Analysis.pdf
+|       7.AI for App Building.pdf
+|       Google AI Professional Certificate.pdf
+|       Google AI Professional Certificate_m.pdf
+|       google-ai-fundamentals-Badge.png
+|       GoogleAIFundamentals_Badge20260227-32-vq2dpm.pdf
+|       
++---Instructor Awards
+|       sccd.pdf
+|       sh 1 (1).pdf
+|       sh2 (1).pdf
+|       
+\---Technical skills
+        Master Git & GitHub Essential Skills for Developers[Arabic].pdf
+        
